@@ -10,7 +10,7 @@ class Book(models.Model):
     release_date = models.DateField()
     creation_date = models.DateTimeField(auto_now_add=True)
     visibility = models.BooleanField(default=True)
-
+    cover = models.ImageField(upload_to='covers/', blank=True, null=False)
     def __str__(self):
         return f'{self.author}:{self.title}'
 

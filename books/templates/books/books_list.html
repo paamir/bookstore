@@ -9,8 +9,10 @@
                 <div class="card m-2" style="max-width: 45%">
                     <div class="row g-0 h-100" dir="rtl">
                         <div class="col-md-4">
-                            <img src="https://cdn.fidibo.com/phoenixpub/content/8e15136d-6f06-4a21-9939-57897aace540/9da1b670-68bd-4f3d-b76b-6fb7c52836e8.jpg?width=576"
+                            {% if book.cover %}
+                            <img src="{{ book.cover.url }}"
                                  class="img-fluid rounded-start" alt="...">
+                            {% endif %}
                         </div>
                         <div class="col-md-8 h-100">
                             <div class="d-flex flex-column justify-content-between h-100">
