@@ -9,4 +9,6 @@
     <a href="{% url 'books_list' %}">مشاهده تمام کتاب ها</a>
     <br>
     <a href="{% url 'book_update' book.id %}">ویرایش کتاب</a>
+    <br>
+    <a href="{% url 'book_delete' book.id %}">حذف کتاب</a>
 {% endblock content %}

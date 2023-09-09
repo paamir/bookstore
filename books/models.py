@@ -9,6 +9,7 @@ class Book(models.Model):
     description = models.TextField(blank=False, null=False)
     release_date = models.DateField()
     creation_date = models.DateTimeField(auto_now_add=True)
+    visibility = models.BooleanField(default=True)
 
     def __str__(self):
         return f'{self.author}:{self.title}'
