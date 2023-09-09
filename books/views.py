@@ -18,3 +18,11 @@ class BookDetailsView(generic.DetailView):
     context_object_name = 'book'
 
 
+class BookCreateView(generic.CreateView):
+    model = Book
+    template_name = 'books/book_create.html'
+    context_object_name = 'form'
+    fields = ['title', 'author', 'description', 'release_date', 'price']
+
+
+

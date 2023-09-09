@@ -4,7 +4,7 @@
     {% for book in books %}
         <h1>{{ book.title }}</h1>
         <p>{{ book.author }}</p>
-        <a href="{% url 'book_details' book.id %}">مشاهده بیشتر</a>
+        <a href="{{ book.get_absolute_url }}">مشاهده بیشتر</a>
         <br>
     {% endfor %}
 {% endblock content %}
