@@ -1,0 +1,9 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <h1>{{ book.title }}</h1>
+    <p>اثری از {{ book.author }} | {{ book.release_date }}</p>
+    <h2>{{ book.price }}</h2>
+    <br>
+    <p>{{ book.description }}</p>
+{% endblock content %}

@@ -12,3 +12,9 @@ class BooksListView(generic.ListView):
         return Book.objects.all().order_by('-creation_date')
 
 
+class BookDetailsView(generic.DetailView):
+    model = Book
+    template_name = 'books/book_details.html'
+    context_object_name = 'book'
+
+
