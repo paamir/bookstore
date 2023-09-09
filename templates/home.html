@@ -1,9 +1,9 @@
 {% extends '_base.html' %}
 {% block content %}
     <h1>HI THIS IS HOME PAGE</h1>
-    {% if user.is_authenticated %}
-        <p>Welcome <b>{{ user.username }}</b> <a href="{% url 'logout' %}">Log Out</a></p>
-    {% else %}
-        <p><a href="{% url 'signup' %}">Sign Up</a> | <a href="{% url 'login' %}">Log In</a></p>
-    {% endif %}
+{#    {% if user.is_authenticated %}#}
+{#        <p>Welcome <b>{{ user.username }}</b> <a href="{% url 'logout' %}">Log Out</a></p>#}
+{#    {% else %}#}
+{#        <p><a href="{% url 'signup' %}">Sign Up</a> | <a href="{% url 'login' %}">Log In</a></p>#}
+{#    {% endif %}#}
 {% endblock content %}
