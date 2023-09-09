@@ -7,4 +7,6 @@
     <br>
     <p>{{ book.description }}</p>
     <a href="{% url 'books_list' %}">مشاهده تمام کتاب ها</a>
+    <br>
+    <a href="{% url 'book_update' book.id %}">ویرایش کتاب</a>
 {% endblock content %}
