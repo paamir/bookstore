@@ -4,5 +4,5 @@ register = template.Library()
 
 
 @register.filter()
-def to_lower(value1ddd):
-    return value1ddd.lower()
+def to_lower(value):
+    return value.lower()

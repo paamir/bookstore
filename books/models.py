@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth import get_user_model
 
 class Book(models.Model):
+    creator = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='books')
     title = models.CharField(max_length=200, blank=False, null=False)
     author = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=9, decimal_places=1)
@@ -24,6 +25,8 @@ class Comment(models.Model):
     user = models.ForeignKey(to=get_user_model(), on_delete=models.CASCADE)
     book = models.ForeignKey(to=Book, on_delete=models.CASCADE, related_name="comments")
     text = models.TextField()
+    is_active = models.BooleanField(default=False)
+    is_recommended = models.BooleanField(default=True)
 
     def __str__(self):
         return f'{self.user.username}: {self.text}'
