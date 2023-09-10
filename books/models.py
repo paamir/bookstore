@@ -2,8 +2,9 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 
+
 class Book(models.Model):
-    creator = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='books')
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='books')
     title = models.CharField(max_length=200, blank=False, null=False)
     author = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=9, decimal_places=1)
