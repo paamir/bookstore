@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic
 from .models import Book
@@ -15,11 +15,21 @@ class BooksListView(generic.ListView):
         return Book.objects.filter(visibility=True).order_by('-creation_date')
 
 
-class BookDetailsView(generic.DetailView):
-    model = Book
-    template_name = 'books/book_details.html'
-    context_object_name = 'book'
+# class BookDetailsView(generic.DetailView):
+#     model = Book
+#     template_name = 'books/book_details.html'
+#     context_object_name = 'book'
+#
+#     def get_context_data(self, **kwargs):
+#
+#         context = super().get_context_data()
+#         context['comments'] = context['book'].comments.all()
+#         return context
+def book_details_view(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    book_comments = book.comments.all()
 
+    return render(request, 'books/book_details.html', context={'book': book, 'book_comments': book_comments})
 
 class BookCreateView(generic.CreateView):
     model = Book

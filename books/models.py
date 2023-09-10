@@ -22,8 +22,8 @@ class Book(models.Model):
 class Comment(models.Model):
     creation_datetime = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(to=get_user_model(), on_delete=models.CASCADE)
-    book = models.ForeignKey(to=Book, on_delete=models.CASCADE)
+    book = models.ForeignKey(to=Book, on_delete=models.CASCADE, related_name="comments")
     text = models.TextField()
 
     def __str__(self):
-        return f'{self.user.name}: {self.text}'
+        return f'{self.user.username}: {self.text}'
